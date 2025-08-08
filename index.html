@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StreamBonk � | Crypto Streaming Revolution</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="noise-overlay"></div>
+
+    <header class="bonk-header">
+      <div class="logo-container">
+        <h1 class="logo-glitch" data-text="StreamBonk">StreamBonk</h1>
+        <div class="logo-sub">🚀 Next-gen crypto streaming</div>
+      </div>
+      <div class="header-actions">
+        <button class="connect-wallet-btn">
+          <span class="pulse-dot"></span>
+          Connect Wallet
+        </button>
+      </div>
+    </header>
+
+    <main class="stream-grid-container">
+      <section class="stream-grid">
+        <!-- Streams will be loaded here via JS -->
+        <div class="stream-card loading">
+          <div class="stream-thumbnail shimmer"></div>
+          <div class="stream-info">
+            <div class="streamer-avatar shimmer"></div>
+            <div class="stream-details">
+              <div class="stream-title shimmer" style="width: 80%"></div>
+              <div class="stream-tags">
+                <span class="tag shimmer" style="width: 60px"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Repeat for 5 more loading cards -->
+      </section>
+
+      <div class="floating-cta">
+        <button class="start-stream-btn">
+          <span class="icon">🎥</span>
+          <span class="text">Start Your Bonk Stream</span>
+          <span class="flare"></span>
+        </button>
+      </div>
+    </main>
+
+    <aside class="live-chat">
+      <div class="chat-header">
+        <h3>Bonk Chat 💬</h3>
+        <div class="online-count">🔴 420 online</div>
+      </div>
+      <div class="chat-messages">
+        <div class="message">
+          <span class="user" style="color: #ff6b6b">@degen42</span>
+          <span class="text">GM ser! Who's aping $BONK today?</span>
+        </div>
+        <div class="message">
+          <span class="user" style="color: #4ecdc4">@nftape</span>
+          <span class="text">Just minted a fresh doge NFT 🚀</span>
+        </div>
+        <!-- More messages will appear here -->
+      </div>
+      <div class="chat-input">
+        <input
+          type="text"
+          placeholder="Send a bonk message..."
+          id="chatMessage"
+        />
+        <button id="sendMessage">🚀</button>
+      </div>
+    </aside>
+
+    <div class="stream-modal hidden">
+      <div class="modal-content">
+        <button class="close-modal">✕</button>
+        <div class="stream-player">
+          <iframe id="streamFrame" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="stream-details">
+          <h2 class="stream-title"></h2>
+          <div class="streamer-info">
+            <div class="avatar"></div>
+            <span class="name"></span>
+          </div>
+          <div class="stream-stats">
+            <span class="viewers">👁️ 0 viewers</span>
+            <span class="tags"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="start-stream-modal hidden">
+      <div class="modal-content">
+        <button class="close-modal">✕</button>
+        <h2>Start Your Bonk Stream</h2>
+        <div class="stream-preview">
+          <div class="preview-placeholder">
+            <div class="camera-icon">📷</div>
+            <div class="preview-text">Stream Preview</div>
+          </div>
+        </div>
+        <form id="streamForm">
+          <div class="form-group">
+            <label for="streamTitle">Stream Title</label>
+            <input
+              type="text"
+              id="streamTitle"
+              placeholder="e.g. Apeing into BONK with 10x leverage"
+            />
+          </div>
+          <div class="form-group">
+            <label for="streamTag">Bonk Tag</label>
+            <select id="streamTag">
+              <option value="#crypto">#crypto</option>
+              <option value="#bonk" selected>#bonk</option>
+              <option value="#memecoin">#memecoin</option>
+              <option value="#degens">#degens</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="thumbnail">Thumbnail</label>
+            <div class="thumbnail-upload">
+              <label for="thumbnail" class="upload-btn">
+                <span class="icon">🖼️</span>
+                <span class="text">Upload Thumbnail</span>
+              </label>
+              <input type="file" id="thumbnail" accept="image/*" />
+            </div>
+          </div>
+          <button type="submit" class="launch-btn">
+            <span class="text">Launch Stream</span>
+            <span class="rocket">🚀</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="coming-soon hidden">
+      <div class="coming-soon-content">
+        <div class="countdown">
+          <div class="countdown-text">StreamBonk launches in:</div>
+          <div class="countdown-timer">
+            <span class="days">03</span>d <span class="hours">12</span>h
+            <span class="minutes">45</span>m
+          </div>
+        </div>
+        <div class="bonk-animation">
+          <div class="bonk-coin">🪙</div>
+          <div class="bonk-doge">🐶</div>
+        </div>
+        <button class="close-coming-soon">Got it, fren!</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
