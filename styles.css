@@ -38,6 +38,14 @@ body {
   align-items: center;
 }
 
+.logo-sub {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+  position: relative;
+}
+
 .logo-glitch {
   font-family: "Space Grotesk", sans-serif;
   font-size: 2.5rem;
