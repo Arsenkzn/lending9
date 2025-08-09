@@ -112,6 +112,200 @@ body {
   box-shadow: 0 2px 10px rgba(255, 158, 125, 0.3);
 }
 
+/* Start Stream Button */
+.start-stream-btn {
+  position: relative;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 209, 102, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1;
+}
+
+.start-stream-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 209, 102, 0.4);
+}
+
+/* Stream Setup Modal */
+.stream-setup-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.stream-setup-modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.stream-setup-modal .modal-content {
+  width: 90%;
+  max-width: 600px;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+}
+
+.stream-setup-modal h2 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.stream-preview {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.preview-placeholder {
+  width: 100%;
+  padding-bottom: 56.25%;
+  background-color: #2b2d42;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.preview-text {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.stream-setup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.form-group input[type="text"] {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: "Rubik", sans-serif;
+}
+
+.upload-area {
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+  border-color: var(--primary);
+  background-color: rgba(255, 158, 125, 0.05);
+}
+
+.launch-stream-btn {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: "Rubik", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.launch-stream-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 158, 125, 0.3);
+}
+
+/* Coming Soon Modal */
+.coming-soon-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2001;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.coming-soon-modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.coming-soon-modal .modal-content {
+  width: 90%;
+  max-width: 400px;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.coming-soon-modal h2 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.coming-soon-modal p {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.coming-soon-modal button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-family: "Rubik", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 /* Pulse dot indicator */
 .pulse-dot {
   display: inline-block;
