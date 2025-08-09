@@ -122,6 +122,26 @@ document.addEventListener("DOMContentLoaded", function () {
     { name: "NFTGuy", color: "#8BD3DD" },
     { name: "DeFiQueen", color: "#C5A3FF" },
     { name: "ToTheMoon", color: "#FF6B6B" },
+    { name: "HODLerPro", color: "#7E57C2" },
+    { name: "ShillMaster", color: "#26A69A" },
+    { name: "FOMO_Guy", color: "#EF5350" },
+    { name: "WhaleWatcher", color: "#42A5F5" },
+    { name: "ApeSquad", color: "#FF7043" },
+    { name: "BullRunRider", color: "#66BB6A" },
+    { name: "BearMarketSurvivor", color: "#5C6BC0" },
+    { name: "LamboDreamer", color: "#EC407A" },
+    { name: "RektProtector", color: "#D4E157" },
+    { name: "GasFeeHater", color: "#FFCA28" },
+    { name: "WAGMI_Chad", color: "#AB47BC" },
+    { name: "FlippeningWatcher", color: "#26C6DA" },
+    { name: "SmartContractDev", color: "#9CCC65" },
+    { name: "StakingKing", color: "#FFA726" },
+    { name: "AltcoinGambler", color: "#7E57C2" },
+    { name: "BitcoinPurist", color: "#78909C" },
+    { name: "ShitcoinShiller", color: "#8D6E63" },
+    { name: "DAOEnthusiast", color: "#FFEE58" },
+    { name: "MetaversePioneer", color: "#80DEEA" },
+    { name: "Web3Explorer", color: "#CE93D8" },
   ];
 
   const mockMessages = [
@@ -133,6 +153,47 @@ document.addEventListener("DOMContentLoaded", function () {
     "GM everyone!",
     "What's your price prediction?",
     "I'm all in on this one",
+    "When moon? 🌕",
+    "This is the dip to buy!",
+    "Paper hands be gone!",
+    "Just got liquidated... again",
+    "DYOR before investing!",
+    "The fundamentals are strong",
+    "Technical analysis looks bullish",
+    "Market cap is everything",
+    "Tokenomics are fire 🔥",
+    "Who's staking here?",
+    "APY is insane right now",
+    "Gas fees killing me today",
+    "This project is undervalued",
+    "Rug pull incoming?",
+    "Dev team is doxxed = safe",
+    "Partnership announcement soon!",
+    "Exchange listing confirmed!",
+    "Whale just dumped 😱",
+    "Buy the rumor, sell the news",
+    "This is financial advice 😂",
+    "My TA says we're going up",
+    "MACD looking juicy",
+    "RSI is oversold - time to buy",
+    "Support level holding strong",
+    "Resistance about to break",
+    "Bull flag forming!",
+    "FUD is temporary, gains are forever",
+    "Not selling until $10B market cap",
+    "Just aped in my life savings",
+    "Tax return just hit - buying more!",
+    "My wife's boyfriend approves this trade",
+    "Institutional money coming soon",
+    "Adoption is growing fast",
+    "Mainnet launch next week!",
+    "Testnet is live - try it out",
+    "Bug bounty program announced",
+    "Audit results look clean",
+    "Community is growing fast",
+    "Discord members doubled today",
+    "Twitter spaces later tonight",
+    "AMA with CEO tomorrow",
   ];
 
   function addMessage(
@@ -185,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       setTimeout(() => {
         if (Math.random() > 0.3) generateAutoMessage();
-      }, 1000 + Math.random() * 3000);
+      }, 1000 + Math.random() * 1000);
     }
   }
 
@@ -200,5 +261,5 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(() => generateAutoMessage(), 1500);
   setInterval(() => {
     if (Math.random() > 0.5) generateAutoMessage();
-  }, 5000);
+  }, 2000);
 });
