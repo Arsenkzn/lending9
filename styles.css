@@ -2,7 +2,7 @@
   --primary: #ff9e7d;
   --secondary: #8bd3dd;
   --accent: #ffd166;
-  --background: #f7f7ff;
+  --background: ;
   --text: #2b2d42;
   --card-bg: #ffffff;
   --online: #ff5a5f;
@@ -15,6 +15,8 @@ body {
   color: var(--text);
   margin: 0;
   padding: 0;
+  background: url("img/20250809_1824_Peach\ Geometric\ Abstraction_simple_compose_01k27pvvevesetdjpyd9q1d401.jpg");
+  background-size: cover;
 }
 
 .noise-overlay {
@@ -42,7 +44,7 @@ body {
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--primary);
+  color: #f17d57;
   position: relative;
 }
 
@@ -50,7 +52,7 @@ body {
   font-family: "Space Grotesk", sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--primary);
+  color: ffffff;
   position: relative;
 }
 
