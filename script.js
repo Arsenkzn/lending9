@@ -1,301 +1,222 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Mock data for streams
-  const mockStreams = [
-    {
-      id: "1",
-      title: "BONK to the MOON 🚀 | Live Trading",
-      streamer: "CryptoDegen42",
-      viewers: 1242,
-      thumbnail:
-        "https://static-cdn.jtvnw.net/previews-ttv/live_user_cryptodream-440x248.jpg",
-      tag: "#bonk",
-      url: "https://www.twitch.tv/cryptodream",
-    },
-    {
-      id: "2",
-      title: "Memecoin Madness | $BONK $DOGE $SHIB",
-      streamer: "MemelordX",
-      viewers: 876,
-      thumbnail:
-        "https://static-cdn.jtvnw.net/previews-ttv/live_user_altcointv-440x248.jpg",
-      tag: "#memecoin",
-      url: "https://www.twitch.tv/altcointv",
-    },
-    {
-      id: "3",
-      title: "Crypto Technical Analysis Daily",
-      streamer: "TA_Whiz",
-      viewers: 543,
-      thumbnail:
-        "https://static-cdn.jtvnw.net/previews-ttv/live_user_coinbureau-440x248.jpg",
-      tag: "#crypto",
-      url: "https://www.twitch.tv/coinbureau",
-    },
-    {
-      id: "4",
-      title: "NFT Degens Unite | Bonk Art Drops",
-      streamer: "NFTApe9000",
-      viewers: 321,
-      thumbnail:
-        "https://static-cdn.jtvnw.net/previews-ttv/live_user_nft-440x248.jpg",
-      tag: "#degens",
-      url: "https://www.twitch.tv/nft",
-    },
-    {
-      id: "5",
-      title: "BONK Farming Strategies",
-      streamer: "DeFiDaddy",
-      viewers: 765,
-      thumbnail:
-        "https://static-cdn.jtvnw.net/previews-ttv/live_user_defi-440x248.jpg",
-      tag: "#bonk",
-      url: "https://www.twitch.tv/defi",
-    },
-    {
-      id: "6",
-      title: "Crypto News 24/7 | Bonk Updates",
-      streamer: "CryptoNewsNow",
-      viewers: 1123,
-      thumbnail:
-        "https://static-cdn.jtvnw.net/previews-ttv/live_user_cryptonews-440x248.jpg",
-      tag: "#crypto",
-      url: "https://www.twitch.tv/cryptonews",
-    },
-  ];
-
-  // Mock chat messages
-  const mockMessages = [
-    {
-      user: "@bonkchampion",
-      text: "LFG! BONK is pumping today 🚀",
-      color: "#FF9E7D",
-    },
-    {
-      user: "@cryptogirl",
-      text: "Just joined the stream, what did I miss?",
-      color: "#8BD3DD",
-    },
-    {
-      user: "@degenartist",
-      text: "Minting my Bonk-inspired NFT soon!",
-      color: "#C5A3FF",
-    },
-    {
-      user: "@tradingnoob",
-      text: "First time trading memecoins, any tips?",
-      color: "#FFD166",
-    },
-    { user: "@wenmoon", text: "WEN LAMBO? WEN MOON?", color: "#FF6B6B" },
-    {
-      user: "@hodlgang",
-      text: "Diamond hands only here 💎🙌",
-      color: "#4ECDC4",
-    },
-  ];
-
   // DOM elements
-  const streamGrid = document.querySelector(".stream-grid");
-  const liveChat = document.querySelector(".live-chat");
-  const chatMessages = document.querySelector(".chat-messages");
-  const chatInput = document.getElementById("chatMessage");
-  const sendMessageBtn = document.getElementById("sendMessage");
+  const streamCards = document.querySelectorAll(".stream-card");
   const streamModal = document.querySelector(".stream-modal");
-  const streamFrame = document.getElementById("streamFrame");
-  const closeModalBtns = document.querySelectorAll(".close-modal");
-  const startStreamModal = document.querySelector(".start-stream-modal");
-  const startStreamBtn = document.querySelector(".start-stream-btn");
-  const streamForm = document.getElementById("streamForm");
-  const comingSoonModal = document.querySelector(".coming-soon");
-  const closeComingSoonBtn = document.querySelector(".close-coming-soon");
+  const streamPlayer = document.getElementById("streamPlayer");
+  const modalStreamTitle = document.getElementById("modalStreamTitle");
+  const modalViewersCount = document.getElementById("modalViewersCount");
+  const closeModalBtn = document.querySelector(".close-modal");
 
-  // Load streams
-  function loadStreams() {
-    // Clear loading cards
-    streamGrid.innerHTML = "";
+  // Replace with your actual domain
+  const parentDomain = window.location.hostname;
 
-    mockStreams.forEach((stream) => {
-      const streamCard = document.createElement("div");
-      streamCard.className = "stream-card";
-      streamCard.innerHTML = `
-                <div class="stream-thumbnail">
-                    <img src="${stream.thumbnail}" alt="${stream.title}">
-                </div>
-                <div class="stream-info">
-                    <div class="streamer-avatar"></div>
-                    <div class="stream-details">
-                        <div class="stream-title">${stream.title}</div>
-                        <div class="stream-tags">
-                            <span class="tag" data-tag="${stream.tag}">${
-        stream.tag
-      }</span>
-                        </div>
-                        <div class="stream-stats">
-                            <span class="viewers">👁️ ${stream.viewers.toLocaleString()} viewers</span>
-                        </div>
-                    </div>
-                </div>
-            `;
+  // Stream data (can be expanded)
+  const streamsData = {
+    burntsummi: {
+      title: "Crypto Trading Live",
+      viewers: "1,242",
+    },
+    dvces: {
+      title: "Crypto Discussions",
+      viewers: "856",
+    },
+    scharo100x: {
+      title: "100x Crypto Picks",
+      viewers: "1,543",
+    },
+    cryptokking: {
+      title: "Crypto King Analysis",
+      viewers: "2,134",
+    },
+    all_i_do_is_camp: {
+      title: "Crypto Camping",
+      viewers: "987",
+    },
+    masterblastortv: {
+      title: "Master Blasto Crypto",
+      viewers: "1,765",
+    },
+    ckattotv: {
+      title: "Crypto with Ckatto",
+      viewers: "1,321",
+    },
+    aussiebloominbsvwhale: {
+      title: "BSV Whale Watching",
+      viewers: "654",
+    },
+    marc_online_: {
+      title: "Marc Online Crypto",
+      viewers: "1,089",
+    },
+  };
 
-      streamCard.addEventListener("click", () => openStreamModal(stream));
-      streamGrid.appendChild(streamCard);
+  // Set up event listeners for stream cards
+  streamCards.forEach((card) => {
+    card.addEventListener("click", function () {
+      const streamer = this.getAttribute("data-streamer");
+      openStream(streamer);
     });
-  }
+  });
 
-  // Open stream modal
-  function openStreamModal(stream) {
-    const modalTitle = document.querySelector(".stream-modal .stream-title");
-    const streamerName = document.querySelector(".stream-modal .name");
-    const streamerAvatar = document.querySelector(".stream-modal .avatar");
-    const viewersCount = document.querySelector(".stream-modal .viewers");
-    const tagsContainer = document.querySelector(".stream-modal .tags");
+  // Function to open stream in modal
+  function openStream(streamer) {
+    // Create Twitch iframe
+    const iframe = document.createElement("iframe");
+    iframe.setAttribute(
+      "src",
+      `https://player.twitch.tv/?channel=${streamer}&parent=${parentDomain}`
+    );
+    iframe.setAttribute("frameborder", "0");
+    iframe.setAttribute("allowfullscreen", "true");
+    iframe.setAttribute("scrolling", "no");
 
-    modalTitle.textContent = stream.title;
-    streamerName.textContent = stream.streamer;
-    viewersCount.textContent = `👁️ ${stream.viewers.toLocaleString()} viewers`;
-    tagsContainer.innerHTML = `<span class="tag" data-tag="${stream.tag}">${stream.tag}</span>`;
+    // Clear previous iframe and add new one
+    streamPlayer.innerHTML = "";
+    streamPlayer.appendChild(iframe);
 
-    // In a real app, we'd embed the actual stream
-    // For demo, we'll just link to the Twitch channel
-    streamFrame.src = stream.url;
+    // Set stream info
+    if (streamsData[streamer]) {
+      modalStreamTitle.textContent = streamsData[streamer].title;
+      modalViewersCount.textContent = `👁️ ${streamsData[streamer].viewers} viewers`;
+    }
 
+    // Show modal
     streamModal.classList.add("active");
   }
 
   // Close modal
-  function closeModal() {
+  closeModalBtn.addEventListener("click", function () {
     streamModal.classList.remove("active");
-    startStreamModal.classList.remove("active");
-    streamFrame.src = "";
-  }
+    // Remove iframe when closing
+    streamPlayer.innerHTML = "";
+  });
 
-  // Load chat messages
-  function loadChatMessages() {
-    mockMessages.forEach((msg) => {
-      addChatMessage(msg.user, msg.text, msg.color);
+  // Close modal when clicking outside
+  streamModal.addEventListener("click", function (e) {
+    if (e.target === streamModal) {
+      streamModal.classList.remove("active");
+      streamPlayer.innerHTML = "";
+    }
+  });
+
+  // Connect wallet button (placeholder functionality)
+  document
+    .querySelector(".connect-wallet-btn")
+    .addEventListener("click", function () {
+      alert("Wallet connection functionality would go here");
     });
 
-    // Simulate new messages coming in
-    setInterval(() => {
-      const randomUser = `@user${Math.floor(Math.random() * 1000)}`;
-      const randomMessages = [
-        "BONK is the future!",
-        "Just aped in with 5 SOL",
-        "WAGMI frens",
-        "This is life changing",
-        "To the mooooon!",
-        "DYOR but BONK is based",
-        "GM GM GM",
-        "When lambo?",
-        "Diamond hands only",
-      ];
-      const randomMsg =
-        randomMessages[Math.floor(Math.random() * randomMessages.length)];
-      const randomColor = `#${Math.floor(Math.random() * 16777215).toString(
-        16
-      )}`;
+  // Chat functionality
+  const chatMessages = document.getElementById("chatMessages");
+  const chatInput = document.getElementById("chatMessageInput");
+  const sendMessageBtn = document.getElementById("sendMessageBtn");
+  const onlineCount = document.getElementById("onlineCount");
 
-      addChatMessage(randomUser, randomMsg, randomColor);
-    }, 8000);
-  }
+  // Mock user names for auto messages
+  const mockUsers = [
+    { name: "CryptoLover", color: "#FF9E7D" },
+    { name: "BitcoinMaxi", color: "#FFD166" },
+    { name: "NFTGuy", color: "#8BD3DD" },
+    { name: "DeFiQueen", color: "#C5A3FF" },
+    { name: "ToTheMoon", color: "#FF6B6B" },
+  ];
 
-  // Add chat message
-  function addChatMessage(user, text, color) {
-    const messageElement = document.createElement("div");
-    messageElement.className = "message";
-    messageElement.innerHTML = `
-            <span class="user" style="color: ${color}">${user}</span>
-            <span class="text">${text}</span>
-        `;
+  // Mock messages
+  const mockMessages = [
+    "What do you think about BONK today?",
+    "LFG! 🚀",
+    "Just bought more, diamond hands!",
+    "Anyone watching the Bitcoin chart?",
+    "This stream is awesome!",
+    "GM everyone!",
+    "What's your price prediction?",
+    "I'm all in on this one",
+  ];
 
-    chatMessages.appendChild(messageElement);
+  // Add a message to chat
+  function addMessage(
+    text,
+    isUser = false,
+    isSystem = false,
+    username = null,
+    color = null
+  ) {
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("message");
+
+    if (isUser) {
+      messageDiv.classList.add("user-message");
+    } else if (isSystem) {
+      messageDiv.classList.add("system-message");
+    }
+
+    if (username) {
+      const usernameDiv = document.createElement("div");
+      usernameDiv.classList.add("message-username");
+      usernameDiv.textContent = username;
+      usernameDiv.style.color = color || "#FF9E7D";
+      messageDiv.appendChild(usernameDiv);
+    }
+
+    const textDiv = document.createElement("div");
+    textDiv.textContent = text;
+    messageDiv.appendChild(textDiv);
+
+    chatMessages.appendChild(messageDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
-  // Send message
+  // Generate random auto message
+  function generateAutoMessage() {
+    const user = mockUsers[Math.floor(Math.random() * mockUsers.length)];
+    const message =
+      mockMessages[Math.floor(Math.random() * mockMessages.length)];
+    addMessage(message, false, false, user.name, user.color);
+
+    // Randomly update online count
+    if (Math.random() > 0.7) {
+      const change = Math.floor(Math.random() * 10) - 3;
+      const current = parseInt(onlineCount.textContent);
+      onlineCount.textContent = Math.max(10, current + change);
+    }
+  }
+
+  // Send user message
   function sendMessage() {
     const message = chatInput.value.trim();
     if (message) {
-      addChatMessage("You", message, "#FF9E7D");
+      addMessage(message, true, false, "You");
       chatInput.value = "";
 
-      // Simulate reply
+      // Auto reply after delay
       setTimeout(() => {
-        const replies = [
-          "True that!",
-          "Based take",
-          "GM ser!",
-          "LFG!",
-          "This is the way",
-          "WAGMI",
-          "HODL strong",
-        ];
-        const randomReply = replies[Math.floor(Math.random() * replies.length)];
-        const randomUser = `@crypto${Math.floor(Math.random() * 100)}`;
-        const randomColor = `#${Math.floor(Math.random() * 16777215).toString(
-          16
-        )}`;
-
-        addChatMessage(randomUser, randomReply, randomColor);
-      }, 1000);
+        if (Math.random() > 0.3) {
+          // 70% chance of reply
+          generateAutoMessage();
+        }
+      }, 1000 + Math.random() * 3000);
     }
   }
 
-  // Open start stream modal
-  function openStartStreamModal() {
-    startStreamModal.classList.add("active");
-  }
-
-  // Handle stream form submission
-  function handleStreamForm(e) {
-    e.preventDefault();
-    const title = document.getElementById("streamTitle").value;
-
-    if (!title) {
-      alert("Please enter a stream title");
-      return;
-    }
-
-    startStreamModal.classList.remove("active");
-    comingSoonModal.classList.add("active");
-  }
-
-  // Close coming soon modal
-  function closeComingSoon() {
-    comingSoonModal.classList.remove("active");
-  }
-
-  // Event listeners
-  closeModalBtns.forEach((btn) => {
-    btn.addEventListener("click", closeModal);
-  });
-
-  startStreamBtn.addEventListener("click", openStartStreamModal);
+  // Event listeners for chat
   sendMessageBtn.addEventListener("click", sendMessage);
   chatInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") sendMessage();
   });
 
-  streamForm.addEventListener("submit", handleStreamForm);
-  closeComingSoonBtn.addEventListener("click", closeComingSoon);
+  // Start auto messages
+  addMessage("Welcome to Bonk Chat! Start chatting...", false, true);
 
-  // Click outside modal to close
-  [streamModal, startStreamModal, comingSoonModal].forEach((modal) => {
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        if (modal === streamModal) {
-          streamFrame.src = "";
-        }
-        modal.classList.remove("active");
-      }
-    });
-  });
-
-  // Initialize
-  loadStreams();
-  loadChatMessages();
-
-  // Show coming soon modal after 3 seconds
+  // Initial messages
   setTimeout(() => {
-    comingSoonModal.classList.add("active");
-  }, 3000);
+    generateAutoMessage();
+  }, 1500);
+
+  // Regular auto messages
+  setInterval(() => {
+    if (Math.random() > 0.5) {
+      // 50% chance every interval
+      generateAutoMessage();
+    }
+  }, 5000);
 });
