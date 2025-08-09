@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StreamBonk � | Crypto Streaming Revolution</title>
+    <title>StreamBonk | Crypto Streaming</title>
+    <link rel="icon" href="img/favicon.jpg" type="image/x-icon" />
     <link rel="stylesheet" href="styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&family=Space+Grotesk:wght@500&display=swap"
@@ -16,8 +17,11 @@
     <header class="bonk-header">
       <div class="logo-container">
         <h1 class="logo-glitch" data-text="StreamBonk">StreamBonk</h1>
-        <div class="logo-sub">🚀 Next-gen crypto streaming</div>
+        <div class="logo-sub">🚀 Crypto streams platform</div>
       </div>
+      <a href="https://x.com" target="_blank" class="sk-external-link">
+        <img src="./img/btnX.jpg" alt="External Link" class="sk-external-btn" />
+      </a>
       <div class="header-actions">
         <button class="connect-wallet-btn">
           <span class="pulse-dot"></span>
@@ -26,139 +30,307 @@
       </div>
     </header>
 
-    <main class="stream-grid-container">
-      <section class="stream-grid">
-        <!-- Streams will be loaded here via JS -->
-        <div class="stream-card loading">
-          <div class="stream-thumbnail shimmer"></div>
-          <div class="stream-info">
-            <div class="streamer-avatar shimmer"></div>
-            <div class="stream-details">
-              <div class="stream-title shimmer" style="width: 80%"></div>
-              <div class="stream-tags">
-                <span class="tag shimmer" style="width: 60px"></span>
+    <div class="content-wrapper">
+      <main class="stream-grid-container">
+        <section class="stream-grid">
+          <!-- Stream cards will be inserted here by JavaScript -->
+          <div class="stream-card" data-streamer="burntsummi">
+            <div class="stream-thumbnail">
+              <img
+                src="https://static-cdn.jtvnw.net/previews-ttv/live_user_burntsummi-440x248.jpg"
+                alt="Crypto stream"
+                loading="lazy"
+              />
+              <div class="live-badge">LIVE</div>
+            </div>
+            <div class="stream-info">
+              <div
+                class="streamer-avatar"
+                style="
+                  background-image: url('https://static-cdn.jtvnw.net/previews-ttv/live_user_burntsummi-50x50.jpg');
+                "
+              ></div>
+              <div class="stream-details">
+                <div class="stream-title">Crypto Trading Live</div>
+                <div class="stream-tags">
+                  <span class="tag">#crypto</span>
+                  <span class="tag">#trading</span>
+                </div>
+                <div class="stream-stats">
+                  <span class="viewers">👁️ 1,242 viewers</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <!-- Repeat for 5 more loading cards -->
-      </section>
 
-      <div class="floating-cta">
-        <button class="start-stream-btn">
-          <span class="icon">🎥</span>
-          <span class="text">Start Your Bonk Stream</span>
-          <span class="flare"></span>
-        </button>
-      </div>
-    </main>
+          <!-- Additional stream cards -->
+          <div class="stream-card" data-streamer="dvces">
+            <div class="stream-thumbnail">
+              <img
+                src="https://static-cdn.jtvnw.net/previews-ttv/live_user_dvces-440x248.jpg"
+                alt="Crypto stream"
+                loading="lazy"
+              />
+              <div class="live-badge">LIVE</div>
+            </div>
+            <div class="stream-info">
+              <div
+                class="streamer-avatar"
+                style="
+                  background-image: url('https://static-cdn.jtvnw.net/previews-ttv/live_user_dvces-50x50.jpg');
+                "
+              ></div>
+              <div class="stream-details">
+                <div class="stream-title">Crypto Discussions</div>
+                <div class="stream-tags">
+                  <span class="tag">#crypto</span>
+                  <span class="tag">#discussion</span>
+                </div>
+                <div class="stream-stats">
+                  <span class="viewers">👁️ 856 viewers</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-    <aside class="live-chat">
-      <div class="chat-header">
-        <h3>Bonk Chat 💬</h3>
-        <div class="online-count">🔴 420 online</div>
-      </div>
-      <div class="chat-messages">
-        <div class="message">
-          <span class="user" style="color: #ff6b6b">@degen42</span>
-          <span class="text">GM ser! Who's aping $BONK today?</span>
+          <div class="stream-card" data-streamer="scharo100x">
+            <div class="stream-thumbnail">
+              <img
+                src="https://static-cdn.jtvnw.net/previews-ttv/live_user_scharo100x-440x248.jpg"
+                alt="Crypto stream"
+                loading="lazy"
+              />
+              <div class="live-badge">LIVE</div>
+            </div>
+            <div class="stream-info">
+              <div
+                class="streamer-avatar"
+                style="
+                  background-image: url('https://static-cdn.jtvnw.net/previews-ttv/live_user_scharo100x-50x50.jpg');
+                "
+              ></div>
+              <div class="stream-details">
+                <div class="stream-title">100x Crypto Picks</div>
+                <div class="stream-tags">
+                  <span class="tag">#crypto</span>
+                  <span class="tag">#altcoins</span>
+                </div>
+                <div class="stream-stats">
+                  <span class="viewers">👁️ 1,543 viewers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stream-card" data-streamer="cryptokking">
+            <div class="stream-thumbnail">
+              <img
+                src="https://static-cdn.jtvnw.net/previews-ttv/live_user_cryptokking-440x248.jpg"
+                alt="Crypto stream"
+                loading="lazy"
+              />
+              <div class="live-badge">LIVE</div>
+            </div>
+            <div class="stream-info">
+              <div
+                class="streamer-avatar"
+                style="
+                  background-image: url('https://static-cdn.jtvnw.net/previews-ttv/live_user_cryptokking-50x50.jpg');
+                "
+              ></div>
+              <div class="stream-details">
+                <div class="stream-title">Crypto King Analysis</div>
+                <div class="stream-tags">
+                  <span class="tag">#crypto</span>
+                  <span class="tag">#analysis</span>
+                </div>
+                <div class="stream-stats">
+                  <span class="viewers">👁️ 2,134 viewers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stream-card" data-streamer="all_i_do_is_camp">
+            <div class="stream-thumbnail">
+              <img
+                src="https://static-cdn.jtvnw.net/previews-ttv/live_user_all_i_do_is_camp-440x248.jpg"
+                alt="Crypto stream"
+                loading="lazy"
+              />
+              <div class="live-badge">LIVE</div>
+            </div>
+            <div class="stream-info">
+              <div
+                class="streamer-avatar"
+                style="
+                  background-image: url('https://static-cdn.jtvnw.net/previews-ttv/live_user_all_i_do_is_camp-50x50.jpg');
+                "
+              ></div>
+              <div class="stream-details">
+                <div class="stream-title">Crypto Camping</div>
+                <div class="stream-tags">
+                  <span class="tag">#crypto</span>
+                  <span class="tag">#trading</span>
+                </div>
+                <div class="stream-stats">
+                  <span class="viewers">👁️ 987 viewers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stream-card" data-streamer="masterblastortv">
+            <div class="stream-thumbnail">
+              <img
+                src="https://static-cdn.jtvnw.net/previews-ttv/live_user_masterblastortv-440x248.jpg"
+                alt="Crypto stream"
+                loading="lazy"
+              />
+              <div class="live-badge">LIVE</div>
+            </div>
+            <div class="stream-info">
+              <div
+                class="streamer-avatar"
+                style="
+                  background-image: url('https://static-cdn.jtvnw.net/previews-ttv/live_user_masterblastortv-50x50.jpg');
+                "
+              ></div>
+              <div class="stream-details">
+                <div class="stream-title">Master Blasto Crypto</div>
+                <div class="stream-tags">
+                  <span class="tag">#crypto</span>
+                  <span class="tag">#education</span>
+                </div>
+                <div class="stream-stats">
+                  <span class="viewers">👁️ 1,765 viewers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stream-card" data-streamer="ckattotv">
+            <div class="stream-thumbnail">
+              <img
+                src="https://static-cdn.jtvnw.net/previews-ttv/live_user_ckattotv-440x248.jpg"
+                alt="Crypto stream"
+                loading="lazy"
+              />
+              <div class="live-badge">LIVE</div>
+            </div>
+            <div class="stream-info">
+              <div
+                class="streamer-avatar"
+                style="
+                  background-image: url('https://static-cdn.jtvnw.net/previews-ttv/live_user_ckattotv-50x50.jpg');
+                "
+              ></div>
+              <div class="stream-details">
+                <div class="stream-title">Crypto with Ckatto</div>
+                <div class="stream-tags">
+                  <span class="tag">#crypto</span>
+                  <span class="tag">#trading</span>
+                </div>
+                <div class="stream-stats">
+                  <span class="viewers">👁️ 1,321 viewers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stream-card" data-streamer="aussiebloominbsvwhale">
+            <div class="stream-thumbnail">
+              <img
+                src="https://static-cdn.jtvnw.net/previews-ttv/live_user_aussiebloominbsvwhale-440x248.jpg"
+                alt="Crypto stream"
+                loading="lazy"
+              />
+              <div class="live-badge">LIVE</div>
+            </div>
+            <div class="stream-info">
+              <div
+                class="streamer-avatar"
+                style="
+                  background-image: url('https://static-cdn.jtvnw.net/previews-ttv/live_user_aussiebloominbsvwhale-50x50.jpg');
+                "
+              ></div>
+              <div class="stream-details">
+                <div class="stream-title">BSV Whale Watching</div>
+                <div class="stream-tags">
+                  <span class="tag">#crypto</span>
+                  <span class="tag">#BSV</span>
+                </div>
+                <div class="stream-stats">
+                  <span class="viewers">👁️ 654 viewers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stream-card" data-streamer="marc_online_">
+            <div class="stream-thumbnail">
+              <img
+                src="https://static-cdn.jtvnw.net/previews-ttv/live_user_marc_online_-440x248.jpg"
+                alt="Crypto stream"
+                loading="lazy"
+              />
+              <div class="live-badge">LIVE</div>
+            </div>
+            <div class="stream-info">
+              <div
+                class="streamer-avatar"
+                style="
+                  background-image: url('https://static-cdn.jtvnw.net/previews-ttv/live_user_marc_online_-50x50.jpg');
+                "
+              ></div>
+              <div class="stream-details">
+                <div class="stream-title">Marc Online Crypto</div>
+                <div class="stream-tags">
+                  <span class="tag">#crypto</span>
+                  <span class="tag">#news</span>
+                </div>
+                <div class="stream-stats">
+                  <span class="viewers">👁️ 1,089 viewers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="live-chat">
+        <div class="chat-header">
+          <h3>Bonk Chat 💬</h3>
+          <div class="online-count">
+            🔴 <span id="onlineCount">256</span> online
+          </div>
         </div>
-        <div class="message">
-          <span class="user" style="color: #4ecdc4">@nftape</span>
-          <span class="text">Just minted a fresh doge NFT 🚀</span>
+        <div class="chat-messages" id="chatMessages">
+          <!-- Сообщения будут появляться здесь -->
         </div>
-        <!-- More messages will appear here -->
-      </div>
-      <div class="chat-input">
-        <input
-          type="text"
-          placeholder="Send a bonk message..."
-          id="chatMessage"
-        />
-        <button id="sendMessage">🚀</button>
-      </div>
-    </aside>
+        <div class="chat-input">
+          <input
+            type="text"
+            placeholder="Send a message..."
+            id="chatMessageInput"
+          />
+          <button id="sendMessageBtn">Send</button>
+        </div>
+      </aside>
+    </div>
 
     <div class="stream-modal hidden">
       <div class="modal-content">
         <button class="close-modal">✕</button>
-        <div class="stream-player">
-          <iframe id="streamFrame" frameborder="0" allowfullscreen></iframe>
+        <div class="stream-player" id="streamPlayer">
+          <!-- Twitch iframe will be inserted here -->
         </div>
         <div class="stream-details">
-          <h2 class="stream-title"></h2>
-          <div class="streamer-info">
-            <div class="avatar"></div>
-            <span class="name"></span>
-          </div>
+          <h2 class="stream-title" id="modalStreamTitle"></h2>
           <div class="stream-stats">
-            <span class="viewers">👁️ 0 viewers</span>
-            <span class="tags"></span>
+            <span class="viewers" id="modalViewersCount"></span>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="start-stream-modal hidden">
-      <div class="modal-content">
-        <button class="close-modal">✕</button>
-        <h2>Start Your Bonk Stream</h2>
-        <div class="stream-preview">
-          <div class="preview-placeholder">
-            <div class="camera-icon">📷</div>
-            <div class="preview-text">Stream Preview</div>
-          </div>
-        </div>
-        <form id="streamForm">
-          <div class="form-group">
-            <label for="streamTitle">Stream Title</label>
-            <input
-              type="text"
-              id="streamTitle"
-              placeholder="e.g. Apeing into BONK with 10x leverage"
-            />
-          </div>
-          <div class="form-group">
-            <label for="streamTag">Bonk Tag</label>
-            <select id="streamTag">
-              <option value="#crypto">#crypto</option>
-              <option value="#bonk" selected>#bonk</option>
-              <option value="#memecoin">#memecoin</option>
-              <option value="#degens">#degens</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="thumbnail">Thumbnail</label>
-            <div class="thumbnail-upload">
-              <label for="thumbnail" class="upload-btn">
-                <span class="icon">🖼️</span>
-                <span class="text">Upload Thumbnail</span>
-              </label>
-              <input type="file" id="thumbnail" accept="image/*" />
-            </div>
-          </div>
-          <button type="submit" class="launch-btn">
-            <span class="text">Launch Stream</span>
-            <span class="rocket">🚀</span>
-          </button>
-        </form>
-      </div>
-    </div>
-
-    <div class="coming-soon hidden">
-      <div class="coming-soon-content">
-        <div class="countdown">
-          <div class="countdown-text">StreamBonk launches in:</div>
-          <div class="countdown-timer">
-            <span class="days">03</span>d <span class="hours">12</span>h
-            <span class="minutes">45</span>m
-          </div>
-        </div>
-        <div class="bonk-animation">
-          <div class="bonk-coin">🪙</div>
-          <div class="bonk-doge">🐶</div>
-        </div>
-        <button class="close-coming-soon">Got it, fren!</button>
       </div>
     </div>
 
