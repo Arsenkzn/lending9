@@ -5,52 +5,61 @@ document.addEventListener("DOMContentLoaded", function () {
   const streamPlayer = document.getElementById("streamPlayer");
   const modalStreamTitle = document.getElementById("modalStreamTitle");
   const modalViewersCount = document.getElementById("modalViewersCount");
-  const closeModalBtn = document.querySelector(".close-modal");
 
   // Replace with your actual domain
   const parentDomain = window.location.hostname;
 
-  // Stream data (can be expanded)
+  // Stream data
   const streamsData = {
-    burntsummi: {
-      title: "Crypto Trading Live",
-      viewers: "1,242",
-    },
-    dvces: {
-      title: "Crypto Discussions",
-      viewers: "856",
-    },
-    scharo100x: {
-      title: "100x Crypto Picks",
-      viewers: "1,543",
-    },
-    cryptokking: {
-      title: "Crypto King Analysis",
-      viewers: "2,134",
-    },
-    all_i_do_is_camp: {
-      title: "Crypto Camping",
-      viewers: "987",
-    },
-    masterblastortv: {
-      title: "Master Blasto Crypto",
-      viewers: "1,765",
-    },
-    ckattotv: {
-      title: "Crypto with Ckatto",
-      viewers: "1,321",
-    },
-    aussiebloominbsvwhale: {
-      title: "BSV Whale Watching",
-      viewers: "654",
-    },
-    marc_online_: {
-      title: "Marc Online Crypto",
-      viewers: "1,089",
-    },
+    burntsummi: { title: "Crypto Trading Live", viewers: "1,242" },
+    dvces: { title: "Crypto Discussions", viewers: "856" },
+    scharo100x: { title: "100x Crypto Picks", viewers: "1,543" },
+    cryptokking: { title: "Crypto King Analysis", viewers: "2,134" },
+    all_i_do_is_camp: { title: "Crypto Camping", viewers: "987" },
+    masterblastortv: { title: "Master Blasto Crypto", viewers: "1,765" },
+    ckattotv: { title: "Crypto with Ckatto", viewers: "1,321" },
+    aussiebloominbsvwhale: { title: "BSV Whale Watching", viewers: "654" },
+    marc_online_: { title: "Marc Online Crypto", viewers: "1,089" },
   };
 
-  // Set up event listeners for stream cards
+  // Универсальная функция для управления модалками
+  function setupModal(modal, openerSelector, closeCallback = null) {
+    if (!modal) return;
+
+    // Открытие модалки
+    if (openerSelector) {
+      document.querySelector(openerSelector)?.addEventListener("click", () => {
+        modal.classList.add("active");
+      });
+    }
+
+    // Закрытие по крестику
+    modal.querySelector(".close-modal")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      modal.classList.remove("active");
+      if (closeCallback) closeCallback();
+    });
+
+    // Закрытие по клику вне модалки
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.remove("active");
+        if (closeCallback) closeCallback();
+      }
+    });
+
+    // Запрещаем закрытие при клике на содержимое модалки
+    modal.querySelector(".modal-content")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+  }
+
+  // Инициализация модалки с видео
+  setupModal(streamModal, null, () => {
+    streamPlayer.innerHTML = ""; // Очищаем iframe при закрытии
+  });
+
+  // Обработчики для карточек стримов
   streamCards.forEach((card) => {
     card.addEventListener("click", function () {
       const streamer = this.getAttribute("data-streamer");
@@ -58,9 +67,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Function to open stream in modal
   function openStream(streamer) {
-    // Create Twitch iframe
+    // Создаем Twitch iframe
     const iframe = document.createElement("iframe");
     iframe.setAttribute(
       "src",
@@ -70,49 +78,44 @@ document.addEventListener("DOMContentLoaded", function () {
     iframe.setAttribute("allowfullscreen", "true");
     iframe.setAttribute("scrolling", "no");
 
-    // Clear previous iframe and add new one
+    // Очищаем и добавляем новый iframe
     streamPlayer.innerHTML = "";
     streamPlayer.appendChild(iframe);
 
-    // Set stream info
+    // Устанавливаем информацию о стриме
     if (streamsData[streamer]) {
       modalStreamTitle.textContent = streamsData[streamer].title;
       modalViewersCount.textContent = `👁️ ${streamsData[streamer].viewers} viewers`;
     }
 
-    // Show modal
+    // Показываем модалку
     streamModal.classList.add("active");
   }
 
-  // Close modal
-  closeModalBtn.addEventListener("click", function () {
-    streamModal.classList.remove("active");
-    // Remove iframe when closing
-    streamPlayer.innerHTML = "";
+  // Инициализация модалки настройки стрима
+  const streamSetupModal = document.querySelector(".stream-setup-modal");
+  const comingSoonModal = document.querySelector(".coming-soon-modal");
+  const launchStreamBtn = document.querySelector(".launch-stream-btn");
+  const startStreamBtn = document.querySelector(".start-stream-btn");
+
+  setupModal(streamSetupModal, ".start-stream-btn");
+  setupModal(comingSoonModal);
+
+  // Обработчик кнопки Launch Stream
+  launchStreamBtn?.addEventListener("click", () => {
+    streamSetupModal.classList.remove("active");
+    setTimeout(() => {
+      comingSoonModal.classList.add("active");
+    }, 300);
   });
 
-  // Close modal when clicking outside
-  streamModal.addEventListener("click", function (e) {
-    if (e.target === streamModal) {
-      streamModal.classList.remove("active");
-      streamPlayer.innerHTML = "";
-    }
-  });
-
-  // Connect wallet button (placeholder functionality)
-  document
-    .querySelector(".connect-wallet-btn")
-    .addEventListener("click", function () {
-      alert("Wallet connection functionality would go here");
-    });
-
-  // Chat functionality
+  // Чат функциональность
   const chatMessages = document.getElementById("chatMessages");
   const chatInput = document.getElementById("chatMessageInput");
   const sendMessageBtn = document.getElementById("sendMessageBtn");
   const onlineCount = document.getElementById("onlineCount");
 
-  // Mock user names for auto messages
+  // Mock данные для чата
   const mockUsers = [
     { name: "CryptoLover", color: "#FF9E7D" },
     { name: "BitcoinMaxi", color: "#FFD166" },
@@ -121,7 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
     { name: "ToTheMoon", color: "#FF6B6B" },
   ];
 
-  // Mock messages
   const mockMessages = [
     "What do you think about BONK today?",
     "LFG! 🚀",
@@ -133,7 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "I'm all in on this one",
   ];
 
-  // Add a message to chat
   function addMessage(
     text,
     isUser = false,
@@ -144,11 +145,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const messageDiv = document.createElement("div");
     messageDiv.classList.add("message");
 
-    if (isUser) {
-      messageDiv.classList.add("user-message");
-    } else if (isSystem) {
-      messageDiv.classList.add("system-message");
-    }
+    if (isUser) messageDiv.classList.add("user-message");
+    else if (isSystem) messageDiv.classList.add("system-message");
 
     if (username) {
       const usernameDiv = document.createElement("div");
@@ -166,14 +164,12 @@ document.addEventListener("DOMContentLoaded", function () {
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
-  // Generate random auto message
   function generateAutoMessage() {
     const user = mockUsers[Math.floor(Math.random() * mockUsers.length)];
     const message =
       mockMessages[Math.floor(Math.random() * mockMessages.length)];
     addMessage(message, false, false, user.name, user.color);
 
-    // Randomly update online count
     if (Math.random() > 0.7) {
       const change = Math.floor(Math.random() * 10) - 3;
       const current = parseInt(onlineCount.textContent);
@@ -181,19 +177,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Send user message
   function sendMessage() {
     const message = chatInput.value.trim();
     if (message) {
       addMessage(message, true, false, "You");
       chatInput.value = "";
 
-      // Auto reply after delay
       setTimeout(() => {
-        if (Math.random() > 0.3) {
-          // 70% chance of reply
-          generateAutoMessage();
-        }
+        if (Math.random() > 0.3) generateAutoMessage();
       }, 1000 + Math.random() * 3000);
     }
   }
@@ -204,19 +195,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (e.key === "Enter") sendMessage();
   });
 
-  // Start auto messages
+  // Инициализация чата
   addMessage("Welcome to Bonk Chat! Start chatting...", false, true);
-
-  // Initial messages
-  setTimeout(() => {
-    generateAutoMessage();
-  }, 1500);
-
-  // Regular auto messages
+  setTimeout(() => generateAutoMessage(), 1500);
   setInterval(() => {
-    if (Math.random() > 0.5) {
-      // 50% chance every interval
-      generateAutoMessage();
-    }
+    if (Math.random() > 0.5) generateAutoMessage();
   }, 5000);
 });

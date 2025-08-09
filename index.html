@@ -23,9 +23,9 @@
         <img src="./img/btnX.jpg" alt="External Link" class="sk-external-btn" />
       </a>
       <div class="header-actions">
-        <button class="connect-wallet-btn">
+        <button class="start-stream-btn">
           <span class="pulse-dot"></span>
-          Connect Wallet
+          Start Streaming Now
         </button>
       </div>
     </header>
@@ -331,6 +331,49 @@
             <span class="viewers" id="modalViewersCount"></span>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="stream-setup-modal hidden">
+      <div class="modal-content">
+        <button class="close-modal">✕</button>
+        <h2>Start Your Stream</h2>
+        <div class="stream-preview">
+          <div class="preview-placeholder">
+            <div class="preview-text">STREAM PREVIEW</div>
+          </div>
+        </div>
+        <form class="stream-setup-form">
+          <div class="form-group">
+            <label for="stream-title">Stream Title</label>
+            <input
+              type="text"
+              id="stream-title"
+              placeholder="Enter your stream title"
+            />
+          </div>
+          <div class="form-group">
+            <label for="bonk-tag">Your Bonk Tag</label>
+            <input type="text" id="bonk-tag" placeholder="@yourbonktag" />
+          </div>
+          <div class="form-group">
+            <label for="thumbnail-upload">Upload Thumbnail</label>
+            <div class="upload-area" id="thumbnail-upload">
+              <span>Click to upload or drag & drop</span>
+              <input type="file" accept="image/*" hidden />
+            </div>
+          </div>
+          <button type="button" class="launch-stream-btn">Launch Stream</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="coming-soon-modal hidden">
+      <div class="modal-content">
+        <h2>🚀 Coming Soon!</h2>
+        <p>We're working hard to bring you the best streaming experience.</p>
+        <p>Streaming functionality will be available soon!</p>
+        <button class="close-modal">Got it!</button>
       </div>
     </div>
 
